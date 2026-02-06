@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long gcdnumeven(vector<int> &nums)
+long long gcdnumeven(vector<long long> &nums)
 {
     if (nums.size() == 0) return 0;
-    int g = nums[0];
+    long long  g = nums[0];
     for (int i = 0; i < nums.size(); i += 2)
     {
         g = __gcd(g, nums[i]);
@@ -13,10 +13,10 @@ long long gcdnumeven(vector<int> &nums)
     return g;
 }
 
-long long gcdnumodd(vector<int> &nums)
+long long gcdnumodd(vector<long long > &nums)
 {
     if (nums.size() < 2) return 0; 
-    int g = nums[1];
+    long long  g = nums[1];
     for (int i = 1; i < nums.size(); i += 2)
     {
         g = __gcd(g, nums[i]);
@@ -33,7 +33,7 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> arr(n);
+        vector<long long > arr(n);
         for (int i = 0; i < n; i++)
         {
             cin >> arr[i];
