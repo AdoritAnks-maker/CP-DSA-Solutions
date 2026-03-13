@@ -20,10 +20,6 @@ int main()
             count++;
         }
     }
-    if (count == 0)
-    {
-        cout << "First" << endl;
-    }
 
     if (count > 1 && count % 2 == 0)
     {
