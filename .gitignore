@@ -1,0 +1,6 @@
+*.exe
+.vscode/
+tempCodeRunnerFile.cpp
+input.txt
+output.txt
+*.pdf
