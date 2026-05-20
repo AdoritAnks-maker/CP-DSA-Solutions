@@ -25,8 +25,9 @@ int main()
     vector<int> arr = {2, 5, 8, 7};
     Node *y = new Node(arr[0]);
 
-    cout << y << " ";
-    cout << y->data << endl;
+    cout << y << " "; // print the memory location of the node or location of
+                      // the node in then memory 
+    cout << y->data << endl; // print the data stored in the particular node of the linked list 
 
     return 0;
 }

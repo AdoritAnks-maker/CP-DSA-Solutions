@@ -36,34 +36,30 @@ int main()
 
             continue;
         }
-
-        map<long long, long long> mpp;
-
-        for (int i = 0; i < n - 1; i++)
-        {
-            mpp[arr[i]]++;
+        vector<long long>diff;
+        for(int i  =1; i<n-1;i++){
+            diff.push_back(arr[i]-arr[i-1]);
         }
-        int count = 0;
-        for (int i = 1; i <= n; i++)
-        {
-            long long sum = i * (i + 1) / 2;
-            if (mpp.find(sum) != mpp.end())
-            {
-                continue;
-            }
-            else
-            {
-                count++;
+        vector<bool>used(n+1 , false);
+        long long bad =-1;
+        for(auto x: diff){
+            if(x>=1 && x<=n && !used[x]){
+                used[x]=true;
+            }else{
+                if(bad!=-1){
+                    bad=-2;
+                    break;
+                }
+                bad=x;
             }
         }
-        if (count > 2)
-        {
+        if(bad==-2){
             cout << "NO" << endl;
             continue;
         }
-        else
-        {
-            continue;
+        vector<int>missing;
+        for(int i  =1;i<=n ;i++){
+            
         }
     }
     return 0;

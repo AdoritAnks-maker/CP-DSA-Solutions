@@ -16,7 +16,7 @@ int main()
         {
             cin >> arr[i];
         }
-        long long total = (long long)(n * (n + 1) / 2);
+        long long total = 1LL* n * (n + 1) / 2;
         if (arr.back() != total)
         {
             arr.push_back(total);

@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+    vector<int> unionarr(vector<int> &nums, vector<int> &arr)
+    {
+        int n1 = nums.size();
+        int n2 = arr.size();
+        int i = 0;
+        vector<int> unionarr;
+        int j = 0;
+        while (i < n1 && j < n2)
+        {
+            if (nums[i] <= arr[j])
+            {
+                if (unionarr.size() == 0 || unionarr.back() != nums[i])
+                {
+                    unionarr.push_back(nums[i]);
+                }
+                i++;
+            }
+            else
+            {
+                if (unionarr.size() == 0 || unionarr.back() != arr[j])
+                {
+                    unionarr.push_back(arr[j]);
+                }
+                j++;
+            }
+        }
+        while (j < n2)
+        {
+            if (unionarr.size() == 0 || unionarr.back() != arr[j])
+            {
+                unionarr.push_back(arr[j]);
+            }
+            j++;
+        }
+        while (i < n1)
+        {
+            if (unionarr.size() == 0 || unionarr.back() != arr[i])
+            {
+                unionarr.push_back(arr[i]);
+            }
+            i++;
+        }
+        return unionarr;
+    }
+};

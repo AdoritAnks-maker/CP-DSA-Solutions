@@ -24,13 +24,13 @@ int main()
             cin >> arr[i];
             total_sum += arr[i];
         }
-        vector<int> prefsum(n);
+        vector<long long > prefsum(n);
         prefsum[0] = arr[0];
         for (int i = 1; i < n; i++)
         {
             prefsum[i] = arr[i] + prefsum[i - 1];
         }
-        long long mxmgcd=INT_MIN;
+        long long mxmgcd=LLONG_MIN;
         for (int i = 0; i < n-1; i++)
         {
            long long gcdtt= gcdnum(prefsum[i] , total_sum-prefsum[i]);

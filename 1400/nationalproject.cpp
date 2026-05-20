@@ -24,6 +24,6 @@ int main() {
         else
             days -= b;
 
-        cout << max(days, n) << "\n";
+        cout << max(days, n) << endl ;
     }
 }

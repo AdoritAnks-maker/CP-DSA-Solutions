@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long const Mod = 1000000007;
+const long long MOD = 1000000007;
 
 int main()
 {
@@ -14,28 +14,25 @@ int main()
     {
         int n;
         cin >> n;
-
         vector<long long> a(n), b(n);
-
-        for (int i = 0; i < n; i++)
-            cin >> a[i];
-
-        for (int i = 0; i < n; i++)
-            cin >> b[i];
-
-        sort(a.begin(), a.end());
-        sort(b.begin(), b.end());
-
-        long long mx_count = LLONG_MIN;
-
         for (int i = 0; i < n; i++)
         {
-            long long gq_count = a.end() - upper_bound(a.begin(), a.end(), b[i]);
-            mx_count = max(mx_count, gq_count) % Mod;
+            cin >> a[i];
         }
+        for (int i = 0; i < n; i++)
+        {
+            cin >> b[i];
+        }
+        long long result = 1;
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end(), greater<int>());
+        for (int i = 0; i < n; i++)
+        {
+            long long temp = upper_bound(a.begin(), a.end(), b[i]) - a.begin();
+            long long count = a.size() - temp;
 
-        cout << mx_count << endl;
+            result = result * max(count - i, 0LL) % MOD;
+        }
+        cout << result << endl;
     }
-
-    return 0;
 }

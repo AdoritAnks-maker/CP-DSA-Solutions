@@ -8,49 +8,48 @@ int main()
 
     int n, q;
     cin >> n >> q;
-    vector<pair<int, int>> v(n, {0, 0});
-    for (int i = 0; i < q; i++)
-    {
+
+    vector<pair<long long, int>> v(n, {0, 0});
+
+    for (int i = 0; i < n; i++)
         cin >> v[i].first;
-    }
-    pair<int, int> globalval({0, -1});
+
     long long sum = 0;
     for (int i = 0; i < n; i++)
-    {
         sum += v[i].first;
-    }
+
+    pair<long long, int> globalval = {0, -1};
 
     for (int it = 1; it <= q; it++)
     {
-        int x;
-        cin >> x;
-        if (x == 1)
+        int type;
+        cin >> type;
+
+        if (type == 1)
         {
-            int id, val;
+            int id;
+            long long val;
             cin >> id >> val;
             id--;
 
             if (v[id].second > globalval.second)
-            {
-                sum += (val - v[id].first);
-            }
+                sum += val - v[id].first;
             else
-            {
-                sum += (val - globalval.first);
-            }
-            v[id].first = val;
-            v[id].second = it;
+                sum += val - globalval.first;
+
+            v[id] = {val, it};
         }
         else
         {
-            int val;
+            long long val;
             cin >> val;
-            globalval.first = val;
-            globalval.second = it;
 
-            sum = (long long)n * x;
+            globalval = {val, it};
+            sum = 1LL * n * val;
         }
+
         cout << sum << endl;
     }
+
     return 0;
 }

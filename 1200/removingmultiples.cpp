@@ -1,4 +1,4 @@
-#include <bits/stdC++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -14,32 +14,27 @@ int main()
         cin >> n;
         string s(n, ' ');
         cin >> s;
-        vector<bool> ans(n + 1, false);
-        for (int i = 1; i <= n; i++)
-        {
-            if (s[i - 1] == '1')
-            {
-                ans[i] = true;
-            }
-        }
+        vector<bool> isremoved(n + 1, false);
         long long res = 0;
-        vector<long long> cost(n + 1, 0);
-        for (int i = n; i >= 1; i--)
+        for (int i = 1; i <= n; i++)
         {
             for (int j = i; j <= n; j += i)
             {
-                if (ans[j])
+                if (s[j - 1] == '1')
                     break;
-                cost[j] = i;
-            }
-        }
-        for (int i = 1; i <= n; i++)
-        {
-            if (!ans[i])
-            {
-                res += cost[i];
+
+                if (isremoved[j])
+                {
+                    continue;
+                }
+                else
+                {
+                    isremoved[j] = true;
+                    res += i;
+                }
             }
         }
         cout << res << endl;
     }
+    return 0;
 }

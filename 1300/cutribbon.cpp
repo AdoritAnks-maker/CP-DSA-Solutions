@@ -4,22 +4,19 @@ using namespace std;
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-
-    int tc;
-    cin >> tc ;
-    while(tc--){
-        int n , k;
-        cin >> n >> k ;
-        vector<int>arr(n);
-        for(int i = 0; i< n ;i++){
-            cin >> arr[i];
-        }
-        int count = 0;
-        for(int i = 0; i< n ;i++){
-            if(arr[i]>k){
-                count++;
-            }
-        }
-        cout << count << endl;
+    
+    int n ;
+    cin >> n;
+    vector<int>arr(n+1);
+    for(int i  = 1 ;i<=n;i++){
+        cin >> arr[i];
     }
+    int count  = 0;
+    sort(arr.begin() , arr.end());
+    for(int i  = 1 ;i<=n ;i++){
+        if(i!=arr[i]){
+            count++;
+        }
+    }
+    cout << count << endl;
 }

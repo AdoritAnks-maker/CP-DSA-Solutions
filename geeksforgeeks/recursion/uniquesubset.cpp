@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Solution {
+  public:
+  
+    void solve(vector<int> arr, vector<int> op, set<vector<int>> &st){
+        
+        if(arr.size() == 0){
+            st.insert(op);
+            return;
+        }
+        
+        vector<int> op1 = op;
+        vector<int> op2 = op;
+        
+        op2.push_back(arr[0]);
+        
+        arr.erase(arr.begin());
+        
+        solve(arr, op1, st); // exclude
+        solve(arr, op2, st); // include
+    }
+    
+    vector<vector<int>> AllSubsets(vector<int> arr, int n) {
+        sort(arr.begin() , arr.end());
+        set<vector<int>> st;
+        vector<int> op;
+        
+        solve(arr, op, st);
+        
+        vector<vector<int>> ans(st.begin(), st.end());
+        
+        return ans;
+    }
+};

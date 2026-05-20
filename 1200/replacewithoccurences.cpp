@@ -36,7 +36,7 @@ int main()
 
         if (!ok)
         {
-            cout << -1 << "\n";
+            cout << -1 << endl ;
             continue;
         }
 
