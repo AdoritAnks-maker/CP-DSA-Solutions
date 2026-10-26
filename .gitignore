@@ -3,4 +3,5 @@
 tempCodeRunnerFile.cpp
 input.txt
 output.txt
-*.pdf
+*.pdf.cph/
+cp/admit_card.pdf
